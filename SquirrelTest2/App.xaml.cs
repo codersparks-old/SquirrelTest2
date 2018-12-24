@@ -16,9 +16,9 @@ namespace SquirrelTest2
     {
         protected override async void OnStartup(StartupEventArgs args)
         {
-            using (var mgr = new UpdateManager(@"C:\Users\Coder Sparks\source\repos\SquirrelTest2\SquirrelTest2\Releases"))
+            using (var mgr = UpdateManager.GitHubUpdateManager("https://github.com/codersparks/SquirrelTest2"))
             {
-                await mgr.UpdateApp();
+                await mgr.Result.UpdateApp();
             }
         }
     }
