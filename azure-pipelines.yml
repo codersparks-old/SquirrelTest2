@@ -33,3 +33,4 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - powershell: tree /F
+- powershell: command nuget.exe
