@@ -23,10 +23,10 @@ steps:
 
 - powershell: |
     (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', '1.$env:BUILD_BUILDNUMBER') | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
-
-	$fileContent = Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
-
-	Write-Verbose $fileContent
+    
+    $fileContent = Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
+    
+    Write-Verbose $fileContent
 
 - task: VSBuild@1
   inputs:
