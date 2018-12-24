@@ -31,10 +31,10 @@ steps:
     Write-Host "##vso[task.setvariable variable=version]$version"
 
 - powershell: |
-    (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', $version) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
+    (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', $env:VERSION) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
     Write-Output "Modified AssemblyInfo.cs:"
     Write-Output (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs)
-    (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec).Replace('1.0.0', $version) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec
+    (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec).Replace('1.0.0', $env:VERSION) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec
     Write-Output "Modified NuSpec File:"
     Write-Output (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec)
     
