@@ -51,13 +51,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - powershell: nuget.exe pack SquirrelTest2.nuspec
-  workingDirectory: $(build.SourcesDirectory)\SquirrelTest2
+  workingDirectory: $(Build.SourcesDirectory)\SquirrelTest2
 
-- task: PowerShell@2
-  displayName: "Releasify the squirrel"
-  inputs:
-    filePath: ./squirrelify.ps1
-    arguments: ./SquirrelTest2
+- powershell: $(Build.SourcesDirectory)\packages\squirrel.windows.1.9.0\tools\Squirrel.exe --releasify .\SquirrelTest2.$(version).nupkg
+  workingDirectory: $(Build.SourcesDirectory)\SquirrelTest2
 
 - task: GithubRelease@0
   inputs:
