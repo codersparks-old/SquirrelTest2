@@ -25,7 +25,7 @@ steps:
 - powershell: |
     $major = "1"
     $minor = $env:BUILD_BUILDNUMBER.Substring(2,4)
-    $build = $env:BUILD_BUILDNUMBER.Substring(6,2) + $env:BUILD_BUILDID.Pad(3, '0')
+    $build = $env:BUILD_BUILDNUMBER.Substring(6,2) + $env:BUILD_BUILDID.PadLeft(3, '0')
     $version = $major + "." + $minor + "." + $build
     Write-Output "Setting to version: $version"
     (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', $version) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
