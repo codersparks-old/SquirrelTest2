@@ -54,3 +54,9 @@ steps:
   workingDirectory: $(build.SourcesDirectory)\SquirrelTest2
 
 - powershell: tree /F
+
+- task: PowerShell@2
+  displayName: "Releasify the squirrel"
+  inputs:
+    filePath: ./squirrelify.ps1
+    arguments: ./
