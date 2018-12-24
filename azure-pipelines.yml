@@ -59,4 +59,14 @@ steps:
     filePath: ./squirrelify.ps1
     arguments: ./SquirrelTest2
 
+- task: GithubRelease@0
+  inputs:
+    gitHubConnection: codersparkspat
+    repositoryName: codersparks/SquirrelTest2
+    title: $(Build.DefinitionName)-$(version)
+    tagSource: manual
+    tag: $(version)
+    assets: '$(Build.SourcesDirectory)\Releases\*'
+
+
 - powershell: tree /F
