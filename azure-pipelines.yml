@@ -23,8 +23,7 @@ steps:
     restoreSolution: '$(solution)'
 
 - powershell: |
-
-	Write-Output "Build Number: $env:BUILD_BUILDNUMBER"
+    Write-Output "Build Number: $env:BUILD_BUILDNUMBER"
     (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', '1.$env:BUILD_BUILDNUMBER') | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
     
     Write-Output (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs)
