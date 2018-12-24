@@ -53,10 +53,10 @@ steps:
 - powershell: nuget.exe pack SquirrelTest2.nuspec
   workingDirectory: $(build.SourcesDirectory)\SquirrelTest2
 
-- powershell: tree /F
-
 - task: PowerShell@2
   displayName: "Releasify the squirrel"
   inputs:
     filePath: ./squirrelify.ps1
     arguments: ./SquirrelTest2
+
+- powershell: tree /F
