@@ -8,8 +8,6 @@
     <description>Squirrel Test 2</description>
   </metadata>
   <files>
-    <file src="bin\Release\*.dll" target="lib\net45"></file>
-    <file src="bin\Release\*.exe" target="lib\net45"></file>
-    <file src="bin\Release\*.config" target="lib\net45"></file>
+    <file src="bin\Release\*" target="lib\net45"></file>
   </files>
 </package>
