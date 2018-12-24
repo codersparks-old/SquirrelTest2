@@ -59,4 +59,4 @@ steps:
   displayName: "Releasify the squirrel"
   inputs:
     filePath: ./squirrelify.ps1
-    arguments: ./
+    arguments: ./SquirrelTest2
