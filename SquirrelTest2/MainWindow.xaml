@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:SquirrelTest2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Version: " />
+        <Label Grid.Column="1"  Name="VersionLabel"></Label>
     </Grid>
 </Window>

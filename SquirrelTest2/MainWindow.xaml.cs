@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,14 @@ namespace SquirrelTest2
         public MainWindow()
         {
             InitializeComponent();
+
+            VersionLabel.Content = Version;
+
         }
+
+        public static string Version => ((AssemblyFileVersionAttribute)Attribute.GetCustomAttribute(
+                Assembly.GetExecutingAssembly(),
+                typeof(AssemblyFileVersionAttribute), false)
+            ).Version;
     }
 }
