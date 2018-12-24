@@ -29,8 +29,11 @@ steps:
     $version = $major + "." + $minor + "." + $build
     Write-Output "Setting to version: $version"
     (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', $version) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
+    Write-Output "Modified AssemblyInfo.cs:"
     Write-Output (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs)
-    
+    (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec).Replace('1.0.0', $version) | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec
+    Write-Output "Modified NuSpec File:"
+    Write-Output (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\SquirrelTest2.nuspec)
     
 
 - task: VSBuild@1
