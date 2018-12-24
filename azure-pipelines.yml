@@ -13,6 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  system.debug: true
 
 steps:
 - task: NuGetToolInstaller@0
@@ -24,7 +25,7 @@ steps:
 - powershell: |
     (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs).Replace('1.0.0', '1.$env:BUILD_BUILDNUMBER') | Set-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs
     
-    $fileContent = (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs)
+    $fileContent = (Get-Content $env:BUILD_SOURCESDIRECTORY\SquirrelTest2\Properties\AssemblyInfo.cs | Out-String)
     
     Write-Verbose $fileContent
 
