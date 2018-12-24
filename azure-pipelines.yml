@@ -63,7 +63,7 @@ steps:
     title: $(Build.DefinitionName)-$(version)
     tagSource: manual
     tag: $(version)
-    assets: '$(Build.SourcesDirectory)\Releases\*'
+    assets: '$(Build.SourcesDirectory)\SquirrelTest2\Releases\*'
 
 
 - powershell: tree /F
